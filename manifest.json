@@ -1,0 +1,17 @@
+{
+  "name": "TaskFlow",
+  "short_name": "TaskFlow",
+  "description": "どこからでもタスク管理",
+  "start_url": "/taskflow/",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#e1600f",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='32' fill='%23e1600f'/><text x='96' y='140' font-size='130' fill='white' text-anchor='middle' font-family='sans-serif' font-weight='bold'>T</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}
