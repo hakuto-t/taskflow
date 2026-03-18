@@ -310,7 +310,7 @@ input,textarea,select{font:inherit;color:inherit}
       <div class="logo-big">TaskFlow</div>
       <p>GitHubのPersonal Access Tokenを入力してください。<br>Gistの読み書きに使用します。</p>
       <div class="form-group">
-        <input type="password" id="setupToken" placeholder="ghp_xxxxxxxxxxxx" style="text-align:center">
+        <input type="text" id="setupToken" placeholder="トークンを貼り付けてください" style="text-align:center">
       </div>
       <button class="btn btn-primary" id="setupSave" style="width:100%">設定を保存</button>
     </div>
@@ -1106,6 +1106,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Init
   if (!getToken()) {
+    setSyncStatus('offline');
+    document.getElementById('syncText').textContent = '未設定';
     showSetup();
   } else {
     sync();
