@@ -493,7 +493,8 @@ async function loadFromGist() {
   lastGistUpdate = gist.updated_at;
   const file = gist.files['tasks.json'];
   if (!file) return [];
-  return JSON.parse(file.content);
+  const parsed = JSON.parse(file.content);
+  return Array.isArray(parsed) ? parsed : (parsed.tasks || []);
 }
 async function saveToGist(data) {
   const token = getToken();
@@ -546,7 +547,7 @@ async function sync(manual = false) {
   } catch (e) {
     console.error('Sync error:', e);
     setSyncStatus('error');
-    if (manual) toast('同期エラー: ' + e.message, 'error');
+    toast('同期エラー: ' + e.message, 'error');
   }
 }
 
