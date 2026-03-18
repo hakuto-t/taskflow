@@ -1105,6 +1105,14 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('online', () => { sync(); toast('オンラインに復帰', 'info'); });
   window.addEventListener('offline', () => { setSyncStatus('offline'); toast('オフラインモード', 'info'); });
 
+  // タブが再表示されたら即同期（バックグラウンド復帰対策）
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && getToken()) sync();
+  });
+  window.addEventListener('focus', () => {
+    if (getToken()) sync();
+  });
+
   // Init
   if (!getToken()) {
     setSyncStatus('offline');
